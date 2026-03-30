@@ -13,8 +13,8 @@ export default defineConfig(({ mode }) => ({
         name: 'Todo List',
         short_name: 'Todo',
         description: 'Todo List 示例应用（Garfish 子应用 + PWA）',
-        theme_color: '#4f46e5',
-        background_color: '#0f172a',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
         display: 'standalone',
         start_url: '.',
         icons: [
