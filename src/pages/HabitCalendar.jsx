@@ -82,7 +82,7 @@ export default function HabitCalendar() {
     <div className="page habit-calendar">
       <header className="page__header">
         <div>
-          <h1>时光补</h1>
+          <h1>时光补<span className="page__title-deco">📅</span></h1>
           <p className="page__subtitle">选择日期  选择习惯  补卡 / 删卡</p>
         </div>
       </header>
@@ -157,6 +157,7 @@ export default function HabitCalendar() {
 
       {selectedDate && dayRecords.length === 0 && (
         <div className="day-records day-records--empty">
+          <span className="empty-state__emoji">📅✨</span>
           <p>{selectedDate} 暂无打卡记录</p>
         </div>
       )}

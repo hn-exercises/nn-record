@@ -40,6 +40,7 @@ export default function Timeline({ dates = [], color = '#FF6B9D' }) {
   if (groups.length === 0) {
     return (
       <div className="timeline timeline--empty">
+        <span className="empty-state__emoji">📝💫</span>
         <p>还没有打卡记录，开始第一次打卡吧！</p>
       </div>
     )
@@ -54,7 +55,7 @@ export default function Timeline({ dates = [], color = '#FF6B9D' }) {
             <div key={entry.ts} className="timeline__item">
               <div className="timeline__dot" style={{ background: color }} />
               {(ti < g.entries.length - 1 || gi < groups.length - 1) && (
-                <div className="timeline__line" style={{ background: color }} />
+                <div className="timeline__line" style={{ '--timeline-color': color, background: color }} />
               )}
               <div className="timeline__content">
                 <div className="timeline__content-row">

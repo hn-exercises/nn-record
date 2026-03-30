@@ -35,20 +35,10 @@ export default function Calendar({
   const monthLabel = `${year}年${month}月`
 
   const getMarkStyle = (colors) => {
+    // With dot-based marking, we no longer paint the cell background.
     if (!colors || colors.length === 0) return undefined
-    if (colors.length === 1) {
-      return {
-        background: `color-mix(in srgb, ${colors[0]} 20%, transparent)`,
-        borderColor: colors[0],
-      }
-    }
-    // multi-color soft gradient (max 4) — diagonal blend, no hard stops
-    const c = colors.slice(0, 4)
     return {
-      background: `linear-gradient(135deg, ${c.join(', ')})`,
-      borderColor: c[0],
-      color: '#fff',
-      textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+      borderColor: colors[0],
     }
   }
 
@@ -105,6 +95,13 @@ export default function Calendar({
               onClick={() => !isDisabled && onSelectDate?.(dateStr)}
             >
               {day}
+              {hasMarks && (
+                <span className="calendar__dots">
+                  {colors.slice(0, 4).map((c, i) => (
+                    <span key={i} className="calendar__dot" style={{ background: c }} />
+                  ))}
+                </span>
+              )}
             </button>
           )
         })}

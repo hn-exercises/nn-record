@@ -30,17 +30,26 @@ export default function HabitHome() {
     <div className="page habit-home">
       <header className="page__header">
         <div>
-          <h1>今日记</h1>
+          <h1>今日记<span className="page__title-deco">🎯</span></h1>
           <p className="page__subtitle">坚持就是胜利，不比较，只累计 ✨</p>
         </div>
       </header>
 
       <div className="habit-grid">
-        {habits.map((habit) => (
+        {habits.length === 0 && (
+          <div className="empty-state">
+            <span className="empty-state__emoji">🌱✨</span>
+            <span className="empty-state__text">还没有习惯，点击下方「＋」开始你的第一个习惯吧</span>
+          </div>
+        )}
+        {habits.map((habit, index) => (
           <div
             key={habit.id}
             className="habit-tile"
-            style={{ '--tile-color': habit.color }}
+            style={{
+              '--tile-color': habit.color,
+              animation: `fade-up 0.3s var(--ease-smooth) ${index * 50}ms both`,
+            }}
             onClick={() => setSelectedHabit(habit)}
           >
             <h3 className="habit-tile__name">{habit.name}</h3>

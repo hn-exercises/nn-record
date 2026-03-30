@@ -16,7 +16,7 @@ export default function CheckinModal({ habit, onCheckin, onClose }) {
         style={{ '--modal-color': habit.color }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="checkin-modal__color-bar" />
+        <div className="checkin-modal__gradient-bar" />
         <div className="checkin-modal__body">
           <h2 className="checkin-modal__name">{habit.name}</h2>
           {habit.motto && (

@@ -172,7 +172,7 @@ export default function HarvestHome() {
     <div className="page harvest-home">
       <header className="page__header">
         <div>
-          <h1>收获集</h1>
+          <h1>收获集<span className="page__title-deco">🏆</span></h1>
           <p className="page__subtitle">数据可视化，看见你的坚持 🌈</p>
         </div>
         <div className="harvest-toggle">

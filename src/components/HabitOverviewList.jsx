@@ -42,6 +42,7 @@ export default function HabitOverviewList({ habits, onRefresh }) {
   if (habits.length === 0) {
     return (
       <div className="overview-empty">
+        <span className="empty-state__emoji">🏆🌈</span>
         <p>暂无习惯，去今日记添加一个吧 ✨</p>
       </div>
     )
