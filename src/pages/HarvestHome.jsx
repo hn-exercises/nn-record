@@ -49,12 +49,12 @@ function TrendLine({ dayCounts }) {
         <text x={padX - 4} y={padY + 4} fontSize={9} fill="#8E8E93" textAnchor="end">{maxVal}</text>
         <text x={padX - 4} y={padY + chartH + 4} fontSize={9} fill="#8E8E93" textAnchor="end">0</text>
         {/* grid line */}
-        <line x1={padX} y1={padY + chartH} x2={padX + chartW} y2={padY + chartH} stroke="#F0F0F0" />
-        <line x1={padX} y1={padY} x2={padX + chartW} y2={padY} stroke="#F0F0F0" strokeDasharray="4" />
+        <line x1={padX} y1={padY + chartH} x2={padX + chartW} y2={padY + chartH} stroke="#F0E8E4" />
+        <line x1={padX} y1={padY} x2={padX + chartW} y2={padY} stroke="#F0E8E4" strokeDasharray="4" />
         {/* line */}
         <polyline
           fill="none"
-          stroke="#FF6B9D"
+          stroke="#FF6B6B"
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -64,7 +64,7 @@ function TrendLine({ dayCounts }) {
         {values.map((v, i) => {
           const x = padX + (i / (values.length - 1 || 1)) * chartW
           const y = padY + chartH - (v / maxVal) * chartH
-          return <circle key={i} cx={x} cy={y} r={2.5} fill="#FF6B9D" />
+          return <circle key={i} cx={x} cy={y} r={2.5} fill="#FF6B6B" />
         })}
         {/* X labels: first and last day */}
         <text x={padX} y={H - 2} fontSize={8} fill="#8E8E93">{days[0].slice(5)}</text>
@@ -194,7 +194,7 @@ export default function HarvestHome() {
       </header>
 
       {viewMode === 'overview' && (
-        <HabitOverviewList habits={habits} onRefresh={refresh} />
+        <HabitOverviewList habits={habits} />
       )}
 
       {viewMode === 'charts' && (

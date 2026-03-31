@@ -1,39 +1,35 @@
 :root {
-  /* 多巴胺色系 */
-  --dopamine-pink: #FF6B9D;
-  --dopamine-mint: #5ECFB1;
-  --dopamine-lemon: #FFD93D;
-  --dopamine-lavender: #B39DDB;
-  --dopamine-coral: #FF8A65;
-  --dopamine-sky: #64B5F6;
-  --dopamine-peach: #FFAB91;
-  --dopamine-lilac: #CE93D8;
+  /* 🎨 水彩调色盘 (Watercolor Palette) */
+  --marker-coral: #FF6B6B;
+  --marker-orange: #FFA94D;
+  --marker-yellow: #FFD43B;
+  --marker-green: #69DB7C;
+  --marker-teal: #63E6BE;
+  --marker-blue: #74C0FC;
+  --marker-lavender: #B197FC;
+  --marker-pink: #F06595;
 
   /* 基础色 */
-  --color-bg: #FFFFFF;
+  --color-bg: #FBF7F4;
   --color-text: #2D2D2D;
   --color-text-secondary: #8E8E93;
-  --color-card-bg: #FAFAFA;
-  --color-border: #F0F0F0;
+  --color-card-bg: #FFFFFF;
+  --color-border: #F0E8E4;
 
-  /* 渐变 */
-  --gradient-page: linear-gradient(160deg, #FFF5F7 0%, #F8F0FF 50%, #F0F7FF 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
-
-  /* 玻璃拟态 */
-  --glass-blur: blur(20px);
-  --glass-border: 1px solid rgba(255,255,255,0.5);
+  /* 字体 */
+  --font-title: 'ZCOOL KuaiLe', 'PingFang SC', system-ui, sans-serif;
+  --font-body: 'Nunito', 'SF Pro Rounded', 'PingFang SC', system-ui, sans-serif;
 
   /* 阴影层次 */
-  --shadow-soft: 0 4px 24px rgba(0,0,0,0.04);
-  --shadow-medium: 0 8px 32px rgba(0,0,0,0.08);
-  --shadow-glow: 0 0 20px rgba(255,107,157,0.15);
+  --shadow-soft: 0 4px 20px rgba(255, 107, 107, 0.08);
+  --shadow-medium: 0 8px 30px rgba(255, 107, 107, 0.12);
+  --shadow-glow: 0 0 20px rgba(255, 107, 107, 0.18);
 
   /* 缓动曲线 */
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-  font-family: 'Nunito', 'SF Pro Rounded', 'PingFang SC', system-ui, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 400;
   color: var(--color-text);
@@ -52,8 +48,7 @@ body {
   margin: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  background: var(--gradient-page);
-  background-attachment: fixed;
+  background: var(--color-bg);
 }
 
 #root {
@@ -62,6 +57,7 @@ body {
 
 h1 {
   margin: 0;
+  font-family: var(--font-title);
   font-size: clamp(2rem, 3vw, 2.75rem);
   line-height: 1.2;
 }
@@ -73,7 +69,7 @@ button {
 
 /* 选中文本色彩 */
 ::selection {
-  background: rgba(255, 107, 157, 0.2);
+  background: rgba(255, 107, 107, 0.2);
 }
 
 /* 自定义滚动条 */
@@ -85,22 +81,9 @@ button {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 107, 157, 0.25);
+  background: rgba(255, 107, 107, 0.25);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 107, 157, 0.4);
-}
-
-/* backdrop-filter 降级 */
-@supports not (backdrop-filter: blur(1px)) {
-  .habit-tile,
-  .calendar,
-  .habit-form,
-  .harvest-chart,
-  .overview-card,
-  .checkin-modal,
-  .bottom-nav {
-    background: rgba(255, 255, 255, 0.95) !important;
-  }
+  background: rgba(255, 107, 107, 0.4);
 }

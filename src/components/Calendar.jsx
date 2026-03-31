@@ -35,30 +35,41 @@ export default function Calendar({
   const monthLabel = `${year}年${month}月`
 
   const getMarkStyle = (colors) => {
-    // With dot-based marking, we no longer paint the cell background.
     if (!colors || colors.length === 0) return undefined
-    return {
-      borderColor: colors[0],
+    const base = { color: '#fff', borderColor: 'transparent' }
+    if (colors.length === 1) {
+      return { ...base, background: colors[0] }
     }
+    // Multi-color: layered radial gradients for organic palette blending
+    const spots = [
+      '25% 25%', '75% 25%', '25% 75%', '75% 75%',
+      '50% 50%', '50% 15%', '15% 50%', '85% 50%',
+    ]
+    const layers = colors.map((c, i) => {
+      const pos = spots[i % spots.length]
+      return `radial-gradient(circle at ${pos}, ${c} 0%, transparent 65%)`
+    })
+    layers.push(`linear-gradient(135deg, ${colors[0]}, ${colors[colors.length - 1]})`)
+    return { ...base, background: layers.join(', ') }
   }
 
   const getSelectedStyle = (markStyle) => {
     const base = markStyle || {}
     return {
       ...base,
-      transform: 'scale(1.15)',
+      fontWeight: 900,
+      fontSize: '1.05em',
+      transform: 'scale(1.12)',
       zIndex: 2,
-      borderColor: 'var(--dopamine-pink)',
-      borderWidth: '4px',
     }
   }
 
   return (
     <div className="calendar">
       <div className="calendar__header">
-        <button type="button" className="btn btn--icon" onClick={onPrev}></button>
+        <button type="button" className="btn btn--icon" onClick={onPrev}>◀</button>
         <span className="calendar__title">{monthLabel}</span>
-        <button type="button" className="btn btn--icon" onClick={onNext}></button>
+        <button type="button" className="btn btn--icon" onClick={onNext}>▶</button>
       </div>
       <div className="calendar__grid">
         {weekLabels.map((w) => (
@@ -95,13 +106,6 @@ export default function Calendar({
               onClick={() => !isDisabled && onSelectDate?.(dateStr)}
             >
               {day}
-              {hasMarks && (
-                <span className="calendar__dots">
-                  {colors.slice(0, 4).map((c, i) => (
-                    <span key={i} className="calendar__dot" style={{ background: c }} />
-                  ))}
-                </span>
-              )}
             </button>
           )
         })}

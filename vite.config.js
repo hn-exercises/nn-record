@@ -10,9 +10,9 @@ export default defineConfig(({ mode }) => ({
       registerType: 'prompt',
       includeAssets: ['favicon.svg', 'icons/icon-192.svg', 'icons/icon-512.svg'],
       manifest: {
-        name: 'Todo List',
-        short_name: 'Todo',
-        description: 'Todo List 示例应用（Garfish 子应用 + PWA）',
+        name: '点点',
+        short_name: '点点',
+        description: '点点 — 习惯打卡与时光记录',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',

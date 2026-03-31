@@ -31,14 +31,15 @@ const saveHabits = (items) => {
 
 export const getHabits = () => loadHabits()
 
-export const addHabit = ({ name, motto, startDate, color }) => {
+export const addHabit = ({ name, motto, startDate, color, emoji }) => {
   const habits = loadHabits()
   const newHabit = {
     id: createId(),
     name,
     motto: motto || '',
+    emoji: emoji || '',
     startDate,
-    color: color || '#4CAF50',
+    color: color || '#FF6B6B',
     createdAt: Date.now(),
   }
   habits.push(newHabit)

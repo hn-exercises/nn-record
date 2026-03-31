@@ -52,6 +52,9 @@ export default function HabitHome() {
             }}
             onClick={() => setSelectedHabit(habit)}
           >
+            {habit.emoji && (
+              <span className="habit-tile__emoji">{habit.emoji}</span>
+            )}
             <h3 className="habit-tile__name">{habit.name}</h3>
             {habit.motto && (
               <p className="habit-tile__motto">"{habit.motto}"</p>
@@ -71,8 +74,8 @@ export default function HabitHome() {
       </div>
 
       {showForm && (
-        <div className="habit-form-overlay" onClick={() => setShowForm(false)}>
-          <div className="habit-form-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="habit-form-overlay">
+          <div className="habit-form-modal">
             <HabitForm onSubmit={handleAdd} onCancel={() => setShowForm(false)} />
           </div>
         </div>

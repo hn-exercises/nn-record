@@ -98,6 +98,9 @@ export default function PineTreeChart({ habits, allCheckins }) {
                   key={h.color + hi}
                   points={points}
                   fill={h.color}
+                  stroke={h.color}
+                  strokeWidth={6}
+                  strokeLinejoin="round"
                   opacity={0.85}
                 />
               )
